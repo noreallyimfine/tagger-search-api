@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 related_terms = {
     'money': ['expense', 'fund'],
@@ -8,7 +8,7 @@ related_terms = {
     'event': ['party', 'meeting']
 }
 
-@application.route('/', methods=['POST'])
+@app.route('/', methods=['POST'])
 def home():
     data = request.get_json('search')
     print(data.keys)
@@ -26,4 +26,4 @@ def home():
     return jsonify(new_searches)
 
 if __name__ == '__main__':
-    application.run()
+    app.run()
